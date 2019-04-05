@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".firstScreen">
+
+    <EditText
+        android:id="@+id/val1Txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="68dp"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/val2Txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/val1Txt"
+        android:layout_below="@+id/val1Txt"
+        android:layout_marginTop="61dp"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/val2Txt"
+        android:layout_alignBottom="@+id/val2Txt"
+        android:layout_marginBottom="50dp"
+        android:text="Valor 2:" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/val1Txt"
+        android:layout_alignBottom="@+id/val1Txt"
+        android:layout_marginBottom="50dp"
+        android:text="Valor 1:" />
+
+    <Button
+        android:id="@+id/plus"
+        android:layout_width="47dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/val2Txt"
+        android:layout_below="@+id/val2Txt"
+        android:layout_marginTop="24dp"
+        android:onClick="action"
+        android:tag="1"
+        android:text="+" />
+
+    <Button
+        android:id="@+id/minus"
+        android:layout_width="47dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/plus"
+        android:layout_toEndOf="@+id/plus"
+        android:onClick="action"
+        android:tag="2"
+        android:text="-" />
+
+    <Button
+        android:id="@+id/times"
+        android:layout_width="47dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/minus"
+        android:layout_alignBottom="@+id/minus"
+        android:layout_toStartOf="@+id/div"
+        android:onClick="action"
+        android:tag="3"
+        android:text="*" />
+
+    <Button
+        android:id="@+id/div"
+        android:layout_width="47dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/times"
+        android:layout_alignBottom="@+id/times"
+        android:layout_alignEnd="@+id/val2Txt"
+        android:onClick="action"
+        android:tag="4"
+        android:text="/" />
+
+    <TextView
+        android:id="@+id/outTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="88dp"
+        android:text="O Resultado é:" />
+</RelativeLayout>
