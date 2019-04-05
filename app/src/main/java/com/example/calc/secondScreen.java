@@ -18,10 +18,23 @@ public class secondScreen extends AppCompatActivity {
         content.setInputType(0);
     }
 
+    boolean equalPressed = false;
+
     public void action(View v){
         final EditText content = (EditText) findViewById(R.id.content);
 
-        content.setText(content.getText() + v.getTag().toString());
+        String sentence = content.getText().toString();
+        if (v.getTag().toString().matches("\\s[\\*\\/\\+\\-]\\s")) {
+            if (sentence.length() == 0) return;
+            if (sentence.substring(sentence.length()-1).compareTo(" ") == 0){
+                sentence = sentence.substring(0, sentence.length()-3);
+            }
+        }
+        if (equalPressed){
+            if (v.getTag().toString().matches("[0-9]"))sentence = "";
+            equalPressed = false;
+        }
+        content.setText(sentence + v.getTag().toString());
     }
 
     public void clear(View v){
@@ -45,7 +58,7 @@ public class secondScreen extends AppCompatActivity {
 
         String removeSpace = sentence.replace(" ", "");
         String[] ops = removeSpace.split("[0-9\\.]+");
-        String[] aux = removeSpace.split("\\*|\\/|\\+|\\-");
+        String[] aux = removeSpace.split("[\\*\\/\\+\\-]");
         double[] num = new double[aux.length];
         for (int i = 0; i < aux.length; i++){
             num[i] = Double.parseDouble(aux[i]);
@@ -69,6 +82,7 @@ public class secondScreen extends AppCompatActivity {
             }
         }
 
+        equalPressed = true;
         content.setText(""+result);
     }
 
