@@ -1,5 +1,6 @@
 package com.example.calc;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -41,4 +42,10 @@ public class firstScreen extends AppCompatActivity {
         out.setText("O Resultado é " + result);
     }
 
+    public void calc2(View v){
+        Intent it = new Intent(this, secondScreen.class);
+        it.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+
+        startActivity(it);
+    }
 }

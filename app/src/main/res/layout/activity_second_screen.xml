@@ -25,7 +25,7 @@
         android:layout_alignBottom="@+id/content"
         android:layout_toEndOf="@+id/content"
         android:onClick="delete"
-        android:text="vv" />
+        android:text="&lt;&lt;" />
 
     <Button
         android:id="@+id/key7"
@@ -198,5 +198,15 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/key."
         android:layout_alignTop="@+id/keyC"
+        android:onClick="equal"
         android:text="=" />
+
+    <Button
+        android:id="@+id/goback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:onClick="calc1"
+        android:text="&lt; Calculadora 1" />
 </RelativeLayout>

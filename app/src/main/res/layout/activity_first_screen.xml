@@ -95,4 +95,13 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="88dp"
         android:text="O Resultado é:" />
+
+    <Button
+        android:id="@+id/gofront"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:onClick="calc2"
+        android:text="Calculadora 2 &gt;" />
 </RelativeLayout>
