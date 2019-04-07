@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
+import java.text.DecimalFormat;
+
 public class secondScreen extends AppCompatActivity {
 
     @Override
@@ -29,6 +31,9 @@ public class secondScreen extends AppCompatActivity {
             if (sentence.substring(sentence.length()-1).compareTo(" ") == 0){
                 sentence = sentence.substring(0, sentence.length()-3);
             }
+        }else if (v.getTag().toString().matches("\\.")) {
+            int lastSpace = (sentence.lastIndexOf(' ') > 0) ? sentence.lastIndexOf(' ') : 0;
+            if (sentence.indexOf('.', lastSpace) > 0) return;
         }
         if (equalPressed){
             if (v.getTag().toString().matches("[0-9]"))sentence = "";
@@ -48,8 +53,10 @@ public class secondScreen extends AppCompatActivity {
 
         String sentence = content.getText().toString();
         if (sentence.length() != 0)
-        if (sentence.substring(sentence.length()-1).matches("[0-9\\.]") ) content.setText(sentence.substring(0, sentence.length()-1));
-        else content.setText(sentence.substring(0, sentence.length()-3));
+        if (sentence.substring(sentence.length()-1).matches("[0-9]") ) content.setText(sentence.substring(0, sentence.length()-1));
+        else if (sentence.substring(sentence.length()-1).matches("\\.") ){
+            content.setText(sentence.substring(0, sentence.length()-1));
+        } else content.setText(sentence.substring(0, sentence.length()-3));
     }
 
     public void equal (View v){
@@ -83,7 +90,8 @@ public class secondScreen extends AppCompatActivity {
         }
 
         equalPressed = true;
-        content.setText(""+result);
+        DecimalFormat dec = new DecimalFormat("#0.00");
+        content.setText(""+dec.format(result));
     }
 
     public void calc1(View v){
